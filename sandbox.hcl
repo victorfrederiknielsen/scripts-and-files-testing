@@ -1,13 +1,11 @@
 resource "container" "workstation" {
-  image = "instruqt/ubuntu-base"
+  image {
+    name = "ubuntu:22.04"
+  }
 
   volume {
+    source      = "./files"
     destination = "/tmp/files"
-    read_only   = false
-    source      = resource.file_tree.lab_files
+    read_only   = true
   }
-}
-
-resource "file_tree" "lab_files" {
-  source = "./files"
 }

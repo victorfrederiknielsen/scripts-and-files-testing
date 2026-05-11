@@ -6,9 +6,7 @@ resource "layout" "side_by_side" {
 
   column {
     tab "terminal" {
-      terminal {
-        target = resource.container.workstation
-      }
+      target = resource.container.workstation
     }
   }
 }
